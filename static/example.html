@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo</title>
+    <link rel="stylesheet" href="./css/fontawesome.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="description" content="Site de exemplo" />
+
+    <style>
+
+      body {
+        font-family: Roboto, Arial;
+        background-color: #2F2F2F;
+      }
+
+      ul.social-list > li.social-item {
+        border-radius: 15px !important;
+      }
+
+      div.container {
+        border-radius: 15px !important;
+          background: #FFFFFFAA;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(7.5px);
+          -webkit-backdrop-filter: blur(7.5px);
+      }
+
+      .name, .icon {
+        color: #6F6F6F;
+      }
+
+      ul.social-list > li.social-item {
+        color: #F6F6F6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <i class="fa-solid fa-user icon"></i>
+
+      <h1 class="name">
+        Person Name
+      </h1>
+      <h3 class="subtitle name">Subtitle</h3>
+
+      <ul class="social-list">
+        <li
+          style="background: none;"
+          class="social-item"
+        >
+          <a onclick="copyTextToClipboard('https://skarf-docs.readthedocs.io/en/latest/index.html', 'Copied text to clipboard.')">
+
+            <i
+              class="fa-solid fa-book"
+            ></i>
+Skarf Docs </a
+          >
+        </li>
+      </ul>
+
+      <ul class="mini-links">
+
+        <li>
+          <a href="https://www.google.com.br"
+            >
+            <img
+              src="https://img2.gratispng.com/20180326/gte/kisspng-google-logo-g-suite-google-guava-google-plus-5ab8b5b15fd9f4.0166567715220545773927.jpg"
+              alt="Image"
+              class="smallimage"
+              width="15px"
+            />
+          </a
+          >
+        </li>
+
+      </ul>
+
+    <div class="share" onclick="copy_url()">
+    <i class="fa-solid fa-share" style="color: #3F3F3F;"></i>
+    </div>
+    <div class="footer">Rodapé</div>
+
+    <script defer> 
+        function fallbackCopyTextToClipboard(text) {
+      var textArea = document.createElement("textarea");
+      textArea.value = text;
+      
+      // Avoid scrolling to bottom
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+    function snackbar(text) {
+        var x = document.getElementById("snackbar");
+        x.innerHTML = text;
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    function copyTextToClipboard(text, alert=false) {
+      if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+      if (alert) {
+        snackbar(alert)
+      }
+    }
+      function copy_url() {
+        copyTextToClipboard(window.location.href);
+        snackbar("Copied link to clipboard.")
+      }
+    </script>
+
+    </div>
+   <div id="snackbar">Copied link to clipboard!</div>
+
+
+
+
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('supportkofi', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Texto',
+    'floating-chat.donateButton.background-color': '#00b9FE',
+    'floating-chat.donateButton.text-color': '#FFFFFF'
+  });
+</script>
+
+  </body>
+</html>
