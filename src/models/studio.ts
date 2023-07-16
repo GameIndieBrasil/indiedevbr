@@ -23,8 +23,7 @@ export interface LinkListItem extends Partial<CardsStyle> {
   icon: IconObject
   info: StringObject
   id: string
-  videoUrl?: string
-  type?: string
+  youtubeVideoId?: string
   dontOpenNewTab?: boolean
 }
 

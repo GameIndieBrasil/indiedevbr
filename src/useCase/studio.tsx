@@ -25,10 +25,10 @@ export class RenderStudio {
             {this.studio.linkList.map((item) => {
               const itemCard = (
                 <li key={item.id} className="link-list-item" style={ this.FormatBackground(item.backgroundType, item.backgroundContent) } > { /* Verificar background por parceiro */ }
-                  <a href={item.info.url} className="link" onClick={item.type ? (e) => this.HandleVideoClick(e, item) : undefined} type={item.type} style={{ color: item.info.color }} target="_blank" rel="noopener noreferrer">
+                  <a href={item.info.url} className="link" onClick={item.youtubeVideoId ? (e) => this.HandleVideoClick(e, item) : undefined} style={{ color: item.info.color }} target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={item.icon.name} color={item.icon.color} /> &nbsp; {item.info.text}
                   </a>
-                  {item.videoUrl && 
+                  {item.youtubeVideoId && 
                     <div id={"video-preview" + item.id} className="video-preview">
                       <iframe id="youtube-video" width="100%" height="315" src="" frameBorder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" title='Youtube Video' allowFullScreen></iframe>
                     </div>
@@ -74,7 +74,7 @@ export class RenderStudio {
     if (videoPreview && youtubeVideo) {
       if (videoPreview.style.display === 'none' || videoPreview.style.display === '') {
         videoPreview.style.display = 'block'
-        youtubeVideo.src = linkListItem?.videoUrl || ''
+        youtubeVideo.src = 'https://www.youtube.com/embed/' + linkListItem?.youtubeVideoId || ''
       } else {
         videoPreview.style.display = 'none'
         youtubeVideo.src = ''

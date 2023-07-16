@@ -28,7 +28,7 @@ const face: LinkListItem = {
     text: 'Facebook',
     url: '#'
   },
-  id: ''
+  id: 'face'
 }
 const twitter: LinkListItem = {
   icon: {
@@ -39,7 +39,7 @@ const twitter: LinkListItem = {
     text: 'Twitter',
     url: '#'
   },
-  id: ''
+  id: 'twitter'
 }
 const instagram: LinkListItem = {
   icon: {
@@ -50,7 +50,18 @@ const instagram: LinkListItem = {
     text: 'Instagram',
     url: '#'
   },
-  id: ''
+  id: 'instagram'
+}
+const youtube: LinkListItem = {
+  icon: {
+    name: Icon.YOUTUBE.value,
+    color: '#ff0000'
+  },
+  info: {
+    text: 'Veja o nosso vídeo mais recente no youtube'
+  },
+  id: 'last',
+  youtubeVideoId: 'C8OK15lHBj0'
 }
 const socialFace: SocialListItem = {
   link: {
@@ -107,7 +118,7 @@ const industriaDeJogos: Studio = {
     name: Icon.VERIFIED.value,
     color: 'green'
   },
-  linkList: [ site, face, twitter, instagram ],
+  linkList: [ site, youtube, face, twitter, instagram ],
   socialIconList: [ socialFace, socialTwitter, socialInstagram ]
 }
 
